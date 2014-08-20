@@ -1,0 +1,26 @@
+div#wrapper {
+    width:800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    color:#0000ff;
+}
+
+a.cat_links {
+    display: block;
+    padding:5px;
+    padding-top:10px;
+    border:1px solid #000000;
+    margin-bottom: 5px;
+    height: 90px;
+    background: #00CCCC;
+    color:#000000;
+    font-size:20px;
+    line-height: 80px;
+}
+
+a.cat_links:hover {
+    background: #dddddd;
+}
