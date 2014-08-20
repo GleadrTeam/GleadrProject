@@ -1,0 +1,58 @@
++---------------------------+
+| Tables_in_softunioverflow |
++---------------------------+
+| categories                |
+| posts                     |
+| topics                    |
+| users                     |
++---------------------------+
+
+categories
++----------------------+--------------+------+-----+---------+----------------+
+| Field                | Type         | Null | Key | Default | Extra          |
++----------------------+--------------+------+-----+---------+----------------+
+| id                   | tinyint(4)   | NO   | PRI | NULL    | auto_increment |
+| category_title       | varchar(150) | NO   |     | NULL    |                |
+| category_description | varchar(255) | NO   |     | NULL    |                |
+| last_post_date       | datetime     | YES  |     | NULL    |                |
+| last_user_posted     | int(11)      | YES  |     | NULL    |                |
++----------------------+--------------+------+-----+---------+----------------+
+
+posts
++--------------+------------+------+-----+---------+----------------+
+| Field        | Type       | Null | Key | Default | Extra          |
++--------------+------------+------+-----+---------+----------------+
+| id           | int(11)    | NO   | PRI | NULL    | auto_increment |
+| category_id  | tinyint(4) | NO   |     | NULL    |                |
+| topic_id     | int(11)    | NO   |     | NULL    |                |
+| post_creator | int(11)    | NO   |     | NULL    |                |
+| post_content | text       | NO   |     | NULL    |                |
+| post_date    | datetime   | NO   |     | NULL    |                |
++--------------+------------+------+-----+---------+----------------+
+
+topics
++------------------+--------------+------+-----+---------+----------------+
+| Field            | Type         | Null | Key | Default | Extra          |
++------------------+--------------+------+-----+---------+----------------+
+| id               | int(11)      | NO   | PRI | NULL    | auto_increment |
+| category_id      | tinyint(4)   | NO   |     | NULL    |                |
+| topic_title      | varchar(150) | YES  |     | NULL    |                |
+| topic_creator    | int(11)      | NO   |     | NULL    |                |
+| topic_last_user  | int(11)      | NO   |     | NULL    |                |
+| topic_date       | datetime     | NO   |     | NULL    |                |
+| topic_reply_date | datetime     | NO   |     | NULL    |                |
+| topic_views      | int(11)      | NO   |     | 0       |                |
++------------------+--------------+------+-----+---------+----------------+
+
+users
++--------------------+---------------+------+-----+---------+----------------+
+| Field              | Type          | Null | Key | Default | Extra          |
++--------------------+---------------+------+-----+---------+----------------+
+| id                 | int(11)       | NO   | PRI | NULL    | auto_increment |
+| username           | varchar(255)  | NO   |     | NULL    |                |
+| password           | varchar(255)  | NO   |     | NULL    |                |
+| email              | varchar(255)  | NO   |     | NULL    |                |
+| forum_notification | enum('0','1') | NO   |     | 1       |                |
++--------------------+---------------+------+-----+---------+----------------+
+
+
