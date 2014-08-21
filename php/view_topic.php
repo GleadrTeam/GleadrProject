@@ -27,34 +27,40 @@ session_start();
     <div id="content">
         <?php
         include_once("mySQLConnect.php");
-        $cid = $_GET['cid'];
-        $tid = $_GET['tid'];
-        $sql = "SELECT * FROM topics WHERE category_id='".$cid."' AND id='".$tid."' LIMIT 1";
-        $res = mysql_query($sql) or die(mysql_error());
-        if(mysql_num_rows($res) == 1) {
-            echo "<table width='100%'>";
-            if(isset($_SESSION['uid'])) {echo "<tr><td colspan='2'><input type='submit' value='Add Reply'" .
-                "onclick=\"window.location = 'post_reply.php?cid=" . $cid . "&tid=" . $tid . "'\" /><hr/>";}
-            else {
-                echo '<tr><td colspan="2"><p>Please login to post your reply</p><hr/></td></tr>';
-            }
-            while($row = mysql_fetch_assoc($res)) {
-                $sql2 = "SELECT * FROM posts WHERE category_id='".$cid."' AND topic_id='".$tid."'";
-                $res2 = mysql_query($sql2) or die(mysql_error());
-                while($row2 = mysql_fetch_assoc($res2)) {
-                    echo "<tr><td valign='top' style='1px solid #000000;'><div style='min-height: 125px;'</td>" .
-                        $row['topic_title'] . "<br/>by " . $row2['post_creator'] . " - " . $row2['post_date'] . "<hr/>" .
-                    $row2['post_content'] . "</div></td><td width='200' valign='top' align='center' style='border:1px solid #000'>" .
-                        "User Info Here</td></tr><tr><td colspan='2'><hr /></td></tr>";
+        if(isset($_GET['cid']) && isset($_GET['tid'])) {
+            $cid = $_GET['cid'];
+            $tid = $_GET['tid'];
+            $sql = "SELECT * FROM topics WHERE category_id='".$cid."' AND id='".$tid."' LIMIT 1";
+            $res = mysql_query($sql) or die(mysql_error());
+            if(mysql_num_rows($res) == 1) {
+                echo "<table width='100%'>";
+                if(isset($_SESSION['uid'])) {echo "<tr><td colspan='2'><input type='submit' value='Add Reply'" .
+                    "onclick=\"window.location = 'post_reply.php?cid=" . $cid . "&tid=" . $tid . "'\" /><hr/>";}
+                else {
+                    echo '<tr><td colspan="2"><p>Please login to post your reply</p><hr/></td></tr>';
                 }
-                $old_views = $row['topic_views'];
-                $new_views = $old_views + 1;
-                $sql3 = "UPDATE topics SET topic_views='".$new_views."' WHERE category_id='".$cid."' AND id='".$tid."' LIMIT 1";
-                $res3 = mysql_query($sql3) or die(mysql_error());
+                while($row = mysql_fetch_assoc($res)) {
+                    $sql2 = "SELECT * FROM posts WHERE category_id='".$cid."' AND topic_id='".$tid."'";
+                    $res2 = mysql_query($sql2) or die(mysql_error());
+                    while($row2 = mysql_fetch_assoc($res2)) {
+                        echo "<tr><td valign='top' style='1px solid #000000;'><div style='min-height: 125px;'</td>" .
+                            $row['topic_title'] . "<br/>by " . $_SESSION['username'] . " - " . $row2['post_date'] . "<hr/>" .
+                        $row2['post_content'] . "</div></td><td width='200' valign='top' align='center' style='border:1px solid #000'>" .
+                            "User Avatar Here</td></tr><tr><td colspan='2'><hr /></td></tr>";
+                    }
+                    $old_views = $row['topic_views'];
+                    $new_views = $old_views + 1;
+                    $sql3 = "UPDATE topics SET topic_views='".$new_views."' WHERE category_id='".$cid."' AND id='".$tid."' LIMIT 1";
+                    $res3 = mysql_query($sql3) or die(mysql_error());
+                }
+                echo "</table>";
+            } else {
+                echo "This topic does not exist!";
             }
-            echo "</table>";
-        } else {
+        }
+        else {
             echo "This topic does not exist!";
+            echo "</br><a href='index.php'>Return To Main Page</a>";
         }
         ?>
     </div>
