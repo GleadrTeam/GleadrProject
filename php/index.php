@@ -19,6 +19,7 @@ session_start();
                 '<label for="pass">Password:</label>' .
                 '<input type="password" name="pass" id="pass"/>' .
                 '<input type="submit" name="sub" value="Log In"/>' .
+                ' You are new? ' . '<a href = "create_new_user.php">Register here!</a>';
                 '</form>';
         } else {
             echo '<p>You are logged in as ' . $_SESSION['username'] . " &bull; <a href='logout.php'>Logout</a>";
