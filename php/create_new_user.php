@@ -19,20 +19,19 @@
 		$password = trim(mysql_prep($_POST['password']));
 		$email = trim(mysql_prep($_POST['email']));
 		$repassword = trim(mysql_prep($_POST['repassword']));
+		$file = $_FILES['image']['tmp_name'];
+		$image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
 		$hashed_password = $password;
 		
 		if ($password != $repassword) {
 		    $message = "Your password didn't match! Please try again.";
 		} elseif ( empty($errors) ) {
-            $file = $_FILES['image']['tmp_name'];
-            if(!isset($file)) {
-                echo "Please select a file to upload";
-            } else {
-                if(!empty($_FILES['image']['name'])) {
-                    $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-                    $image_name = addslashes($_FILES['image']['name']);
-                    $image_size = getimagesize($_FILES['image']['tmp_name']);
-                    echo $image_size;
+		    
+		    if(!isset($file)) {
+			$message = "Please select a file to upload";
+		    } else {
+			if(!empty($_FILES['image']['name'])) {
+			    
                     $query = "INSERT INTO users (
                                     username, password, email, image
                                 ) VALUES (
@@ -90,7 +89,7 @@
 		       title="Please enter a valid email address"/>
                 <input type = "submit" name = "submition" value = "Submit" /> <br/>
                     File:
-                    <input type="file" name="image"/><br/>
+                <input type="file" name="image"/><br/>
                 <br/>
 		<a href="index.php">Back to the main page</a><br />
             </form>
