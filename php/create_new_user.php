@@ -78,13 +78,10 @@
 	    <?php if (!empty($errors)) { display_errors($errors); } ?>
             <form method = "post" enctype="multipart/form-data">
                 <p>Fill This Form Below</p>
-                <input type = "text" name = "username" placeholder = "User name" required="true"
-		       title="The field is empty, please enter your login name" />
-                <input type = "password" name = "password" placeholder = "Enter Your Password" required="true"
-		       title="The field is empty, please enter your password"/>
-		<input type = "password" name = "repassword" placeholder = "Repeat Passowrd" required="true"
-		       title="The field is empty, please retype your password"/>
-		<input type = "email" name = "email" placeholder = "Enter Your Email" required="true"
+                <input type = "text" name = "username" placeholder = "User name" />
+                <input type = "password" name = "password" placeholder = "Enter Your Password" />
+		<input type = "password" name = "repassword" placeholder = "Repeat Passowrd"/>
+		<input type = "email" name = "email" placeholder = "Enter Your Email"
 		       pattern="[a-zA-Z0-9_]{3,}@[a-zA-Z0-9_]{3,}.[a-zA-Z0-9_]{2,4}"
 		       title="Please enter a valid email address"/>
                 <input type = "submit" name = "submition" value = "Submit" /> <br/>
