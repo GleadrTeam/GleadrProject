@@ -11,8 +11,8 @@ if(isset($_POST['topic_submit'])) {
     } else {
         include_once("mySQLConnect.php");
         $cid = $_POST['cid'];
-        $title = htmlentities($_POST['topic_title']);
-        $content = htmlentities($_POST['topic_content']);
+        $title = htmlentities(addslashes($_POST['topic_title']));
+        $content = htmlentities(addslashes($_POST['topic_content']));
         $creator = $_SESSION['uid'];
 
         $sql = "INSERT INTO topics (category_id, topic_title, topic_creator, topic_date, topic_reply_date) VALUES ".
@@ -34,7 +34,9 @@ if(isset($_POST['topic_submit'])) {
         }
 
     }
+} else {
+    echo '<h1>This page does not exist</h1>';
+    echo "</br><a href='index.php'>Return To Main Page</a>";
 }
-
 
 ?>
