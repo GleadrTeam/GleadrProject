@@ -6,13 +6,13 @@ if($_SESSION['uid'] == "") {
 }
 if(isset($_POST['topic_submit'])) {
     if(($_POST['topic_title'] == "") && ($_POST['topic_content'] == "")) {
-       echo "Please fill out both fields, please return to the previous page";
-       exit();
+        echo "Please fill out both fields, please return to the previous page";
+        exit();
     } else {
         include_once("mySQLConnect.php");
         $cid = $_POST['cid'];
-        $title = htmlentities(addslashes($_POST['topic_title']));
-        $content = htmlentities(addslashes($_POST['topic_content']));
+        $title = addslashes($_POST['topic_title']);
+        $content = addslashes($_POST['topic_content']);
         $creator = $_SESSION['uid'];
 
         $sql = "INSERT INTO topics (category_id, topic_title, topic_creator, topic_date, topic_reply_date) VALUES ".

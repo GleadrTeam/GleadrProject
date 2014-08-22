@@ -2,7 +2,7 @@
 <?php include_once("mySQLConnect.php"); ?>
 
 <?php
-    
+
         include_once("includes/form_functions.php");
     
         if (isset($_POST['submition'])) { // Form has been submitted.
@@ -15,7 +15,7 @@
 		$fields_with_lengths = array('username' => 30, 'password' => 30);
 		$errors = array_merge($errors, check_max_field_lengths($fields_with_lengths, $_POST));
 
-		$username = trim(mysql_prep($_POST['username']));
+		$username = htmlentities(trim(mysql_prep($_POST['username'])));
 		$password = trim(mysql_prep($_POST['password']));
 		$email = trim(mysql_prep($_POST['email']));
 		$repassword = trim(mysql_prep($_POST['repassword']));
@@ -35,7 +35,7 @@
                     $query = "INSERT INTO users (
                                     username, password, email, image
                                 ) VALUES (
-                                    '{$username}', '{$hashed_password}', '{$email}', '{$image}'
+                                    '" . $username . "', '{$hashed_password}', '{$email}', '{$image}'
                                 )";
                     $result = mysql_query($query, $connection);
                     if ($result) {
@@ -56,8 +56,6 @@
 				$message = "There were " . count($errors) . " errors in the form.";
 			}
 		}
-
-
 
 	} else { // Form has not been submitted.
 		$username = "";

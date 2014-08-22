@@ -3,7 +3,7 @@ session_start();
 include_once("mySQLConnect.php");
 
 if(isset($_POST['username'])) {
-    $username = $_POST['username'];
+    $username = addslashes($_POST['username']);
     $password = $_POST['pass'];
     $sql = "SELECT * FROM users WHERE username='".$username."' AND password='".$password."' LIMIT 1";
     $res = mysql_query($sql) or die(mysql_error());

@@ -60,7 +60,7 @@ if(isset($_SESSION['uid'])) {
 
         if($res && $res2 && $res3) {
             echo "<p>Your reply has been successfully posted</p><a href='view_topic.php?cid=" . $cid . "&tid=" . $tid .
-            "'>Click here to return to topic</a>";
+                "'>Click here to return to topic</a>";
         } else {
             echo "There was a problem posting your response. Try again later";
         }
