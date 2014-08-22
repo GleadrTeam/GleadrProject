@@ -22,7 +22,7 @@ session_start();
                 ' You are new? ' . '<a href = "create_new_user.php">Register here!</a>';
                 '</form>';
         } else {
-            echo '<p>You are logged in as ' . $_SESSION['username'] . " &bull; <a href='logout.php'>Logout</a>";
+            echo '<p>You are logged in as ' . htmlentities($_SESSION['username']) . " &bull; <a href='logout.php'>Logout</a>";
         }
     ?>
     <hr/>
