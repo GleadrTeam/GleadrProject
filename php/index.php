@@ -10,7 +10,7 @@ session_start();
 <body>
 <div id="wrapper">
     <h1>SoftUni Overflow | Categories</h1>
-    <p>Please login</p>
+    <p>Please Login</p>
     <?php
         if(!isset($_SESSION['uid'])) {
             echo '<form action="login.php" method="post">' .

@@ -1,10 +1,11 @@
+<?php require_once("includes/functions.php"); ?>
 <?php
 session_start();
 include_once("mySQLConnect.php");
 
 if(isset($_POST['username'])) {
-    $username = addslashes($_POST['username']);
-    $password = $_POST['pass'];
+    $username = trim(mysql_prep($_POST['username']));
+    $password = trim(mysql_prep($_POST['pass']));
     $sql = "SELECT * FROM users WHERE username='".$username."' AND password='".$password."' LIMIT 1";
     $res = mysql_query($sql) or die(mysql_error());
     if(mysql_num_rows($res) == 1) {
