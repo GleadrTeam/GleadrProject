@@ -21,7 +21,7 @@ $tid = $_GET['tid'];
     <h1>SoftUni Overflow | Post Forum Reply</h1>
     <p>Viewing Category Topics and Creating New Topics</p>
     <?php
-    echo '<p>You are logged in as ' . $_SESSION['username'] . " &bull; <a href='logout.php'>Logout</a>";
+    echo '<p>You are logged in as ' . htmlentities($_SESSION['username']) . " &bull; <a href='logout.php'>Logout</a>";
     ?>
     <hr/>
     <div id="content">

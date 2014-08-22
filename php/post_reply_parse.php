@@ -23,41 +23,6 @@ if(isset($_SESSION['uid'])) {
 
         $res3 = mysql_query($sql3) or die(mysql_error());
 
-        // Email Sending
-        /*$sql4 = "SELECT post_creator FROM posts WHERE category_id='".$cid."' AND '".$tid."' GROUP BY post_creator";
-
-        $res4 = mysql_query($sql4) or die(mysql_error());
-
-        while($row4 = mysql_fetch_assoc($res4)) {
-            $userids[] .= $row4['post_creator'];
-        }
-
-        //runs through all the users and gets the id and email
-        foreach ($userids as $key ) {
-            //forum notification - if the flag is set to 1, the user agrees on notifications on reply
-            $sql5 = "SELECT id, email FROM users WHERE id='".$key."' AND forum_notification='1' LIMIT 1";
-            $res5 = mysql_query($sql5) or die(mysql_error());
-            if(mysql_num_rows($res5) > 0) {
-                $row5 = mysql_fetch_assoc($res5);
-                //if the responce is not from the creator himself add it to email address string
-                if($row5['id'] == $creator) {
-                    $email[] = $row5['email'];
-                }
-            }
-        }
-        $email = implode(', ', $email);
-
-        $to = "valericfbg@gmail.com";
-        $from = "valericfbg@gmail.com";
-        $bcc = "valericfbg@gmail.com";
-        $subject = "There was a reply on a post that you are subscribed to!";
-        $message = "Someone has replied to a topic. Please check it out!";
-        $header = "From: $from\r\nReply-To: $from";
-        $header .= "\r\nBcc: ($bcc)";
-
-        mail($to, $subject, $message, $header);*/
-
-
         if($res && $res2 && $res3) {
             echo "<p>Your reply has been successfully posted</p><a href='view_topic.php?cid=" . $cid . "&tid=" . $tid .
                 "'>Click here to return to topic</a>";
