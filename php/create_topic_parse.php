@@ -12,7 +12,7 @@ if(isset($_POST['topic_submit'])) {
         include_once("mySQLConnect.php");
         require_once("includes/functions.php");
         $cid = $_POST['cid'];
-        $title = trim(mysql_prep($_POST['topic_title'])_;
+        $title = trim(mysql_prep($_POST['topic_title']));
         $content = trim(mysql_prep($_POST['topic_content']));
         $creator = $_SESSION['uid'];
 
