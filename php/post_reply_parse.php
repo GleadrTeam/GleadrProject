@@ -7,7 +7,7 @@ if(isset($_SESSION['uid'])) {
         $creator = $_SESSION['uid'];
         $cid = $_POST['cid'];
         $tid = $_POST['tid'];
-        $reply_content = htmlentities(addslashes($_POST['reply_content']));
+        $reply_content = trim(mysql_prep($_POST['reply_content']));
         $userids = array();
 
         $sql = "INSERT INTO posts (category_id, topic_id, post_creator, post_content, post_date) VALUES " .
