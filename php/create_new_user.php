@@ -22,7 +22,7 @@ if (isset($_POST['submition']) && !empty($_FILES['image'])) { // Form has been s
     if(!empty($_FILES['image']['tmp_name'])) {
         $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
     }
-    $hashed_password = $password;
+    $hashed_password = sha1($password);
 
     if ($password != $repassword) {
         $message = "Your password didn't match! Please try again.";

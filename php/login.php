@@ -7,8 +7,8 @@ include_once("mySQLConnect.php");
 if(isset($_POST['username'])) {
 
     $username = trim(mysql_prep($_POST['username']));
-    $password = trim(mysql_prep($_POST['pass']));
-    $sql = "SELECT * FROM users WHERE username='".$username."' AND password='".$password."' LIMIT 1";
+    $hashed_password = sha1(trim(mysql_prep($_POST['pass'])));
+    $sql = "SELECT * FROM users WHERE username='".$username."' AND password='".$hashed_password."' LIMIT 1";
     $res = mysql_query($sql) or die(mysql_error());
     if(mysql_num_rows($res) == 1) {
         if(isActive($_POST['username']) !== false) {
