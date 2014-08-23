@@ -18,11 +18,11 @@
 </head>
 <body>
 
-<div class="container" id="main">
+<div class="container fill" id="main">
     <!--    The nav bar goes here -->
     <div class="navbar navbar-fixed-top">
         <div class="container">
-            <!--            Responsive menu goes here-->
+            <!--            Responsive menu button goes here-->
             <button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -47,7 +47,8 @@
                         <!-- The drop down menu: -->
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">Login</a>
+                                <a href="#loginModal" data-toggle="modal">Login</a>
+
                             </li>
                             <!-- Bootstrap menu list divider: -->
                             <li class="divider"></li>
@@ -56,6 +57,7 @@
                             </li>
                         </ul><!-- end dropdown menu for Login -->
                     </li>
+
                     <!--                Search form goes here-->
                     <form action="" class="navbar-form pull-right">
                         <input type="text" class="form-control" placeholder="Search..." id="searchInput"/>

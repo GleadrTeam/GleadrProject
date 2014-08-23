@@ -5,17 +5,28 @@
 <!--        this is bootstrap 3 row class -->
         <div class="row">
 <!--            this is bootstrap 3 col class -->
-            <div class="col-sm-4">
-                <h6>Coded with <span class="glyphicon glyphicon-heart"></span> by www.softuni.bg students.</h6>
-            </div>
-            <div class="col-sm-4">
-                <h6>About us</h6>
-                <p>We are a team of students from Software University Sofia.</p>
-            </div>
-            <div class="col-sm-4">
-                <h6>Inspired by www.softuni.bg</h6>
 
+            <div class="col-sm-8">
+                <h3>Coded with <span class="glyphicon glyphicon-heart"></span> by
+                    <a href="http://www.softuni.bg" target="_blank">Software University, Sofia</a> students <br/>
+
+                </h3>
             </div>
+            <div class="col-sm-4" id="footer-about">
+                <h4 class="pull-left">About us:</h4>
+                <ul class="pull-left list-unstyled">
+                    <li>Valeri</li>
+                    <li>Pepi</li>
+                    <li >Atanas</li>
+                </ul>
+                <ul class="list-unstyled">
+                    <li>Vlad</li>
+                    <li>Deyan</li>
+                    <li>Ivan</li>
+                </ul>
+            </div>
+
+
 
         </div> <!-- end of row -->
 

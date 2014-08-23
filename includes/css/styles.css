@@ -13,17 +13,33 @@ Notes:	 Hand coded for Udemy.com
 /* --------------------------------------
    Layout
    -------------------------------------- */
+    body, html {
+        height: 100%;
+    }
     body > .container {
-        min-height: 90%;
+        min-height: 88%;
     }
-
     footer {
-        background: #343;
-        color: #eee;
-        font-size: 11px;
+        background: #333;
+        color: #7aba7b;
+        font-size: 1.2em;
         padding: 20px;
-    }
+        border-top: 18px solid #7aba7b;
+        border-bottom: 5px solid #7aba7b;
+        -webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
+        transition: 2s;
 
+    }
+    footer > #footer-about {
+        padding:0;
+    }
+    footer #footer-about ul {
+        margin: 0 40px;
+        color: skyblue;
+    }
+    footer:hover {
+        border-color: #449d44;
+    }
 
 /* --------------------------------------
    Typography
@@ -38,19 +54,21 @@ Notes:	 Hand coded for Udemy.com
    Navbar
    -------------------------------------- */
        body > .container > .navbar {
-           background: silver;
+           background: #c9e2b3;
            border-top: 2px solid #7aba7b;
            border-bottom: 6px solid #7aba7b;
            -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
-           transition: 1s;
+           transition: 0.5s;
        }
        body > .container > .navbar:hover {
            box-shadow: 0 0 25px 1px darkgray;
        }
        body > .container > .navbar .active a {
-           background-color: lightgray;
+           background-color: #c0c0c0;
            color: #3a3c3c;
+
        }
+      
        body > .container > .navbar a {
            color: dimgray;
        }
@@ -58,10 +76,10 @@ Notes:	 Hand coded for Udemy.com
             color: #000000;
         }
        body > .container > .navbar .navbar-brand {
-           font-size: 1.9em;
+           font-size: 1.8em;
            line-height: 0.8em;
-           padding: 4px;
-           color: #ffffff;
+           padding: 5px 15px 5px 15px;
+           color: white;
            background: #7aba7b;
            -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
            transition: 0.5s;
@@ -73,8 +91,9 @@ Notes:	 Hand coded for Udemy.com
            width: 200px;
        }
        body > .container > .navbar #user-control {
-           color:#4cae4c;
+           color: dimgray;
        }
+
         body > .container > .navbar  .dropdown-menu {
             background-color: #7aba7b;
             border: 0;
@@ -108,14 +127,24 @@ Notes:	 Hand coded for Udemy.com
    -------------------------------------- */
     body > .container .btn {
         bottom: 30px;
-        background-color: gold;
-        /*background-color: #7fc6b6;*/
+        background-color: #ffb731;
         border: none;
         border-radius: 0;
-        color: #7aba7b;
+        color: #356635;
         -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
         transition: 0.5s;
     }
+    
+    #loginModal button {
+        background-color: #a6e1ec;
+        color: dimgray;
+        -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
+        transition: 0.5s;
+    }
+    #loginModal button:hover {
+        background: #d6e9c6;
+    }
+    
     body > .container .btn:hover {
         background: goldenrod;
 
@@ -125,11 +154,11 @@ Notes:	 Hand coded for Udemy.com
         padding-bottom: 0;
     }
 
-    .panel {
+    .well {
         box-shadow: 0 0 15px 1px #bce8f1;
         margin: 20px 0;
     }
-    body > .container .panel:hover {
+    .well:hover {
         box-shadow: 0 0 25px 1px lightgray;
         cursor: pointer;
     }
@@ -137,6 +166,18 @@ Notes:	 Hand coded for Udemy.com
         margin-top: 15px;
         border: 0;
         display: none;
+    }
+
+    .well > h3 {
+        margin: 7px 0 13px 0 ;
+        padding-bottom: 1px;
+        font-weight: bold;
+        color: #808080;
+        border-bottom: 3px solid #e5e5e5;
+    }
+    .well > h3 > span {
+        color: #7aba7b;
+        font-weight: normal;
     }
 
 /* --------------------------------------
