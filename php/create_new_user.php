@@ -31,7 +31,10 @@ if (isset($_POST['submition']) && !empty($_FILES['image'])) { // Form has been s
             $message = "Please select a file to upload";
         }
 
-        if(checkUser($username) || checkMail($email)) {
+        if(checkUser($username) || checkMail($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                echo "<p>Invalid email address</p>";
+            }
             if(checkMail($email)) {
                 echo "<p>This email address has already been registered!</p>";
             }
@@ -56,6 +59,22 @@ if (isset($_POST['submition']) && !empty($_FILES['image'])) { // Form has been s
                                 ) VALUES (
                                     '" . $username . "', '{$hashed_password}', '{$email}', '{$image}'
                                 )";
+                    $userId = addslashes(mysql_insert_id());
+                    $charset = array_flip(array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9)));
+                    $activationId = mysql_real_escape_string(implode(array_rand($charset, 10)));
+
+                    $body = <<<EMAIL
+
+                    Hi, thanks for registering in SoftUni Overflow!
+                    before continuing you will have to activate your account
+                    Please follow this link http://softunioverflow.webuda.com/php/activate.php?aid={$activationId}
+
+EMAIL;
+                    mail($email, "Your new account on SoftUni Overflow!", $body, "From: admin@softunioverflow.webuda.com");
+
+                    $newQuery = "INSERT INTO user_activations (user_id, activation_code) VALUES ('', '{$activationId}')";
+
+                    mysql_query($newQuery, $connection) or die(mysql_error());
                     $result = mysql_query($query, $connection);
                     if ($result) {
                         $message = "The user was successfully created.";
@@ -103,9 +122,7 @@ if (isset($_POST['submition']) && !empty($_FILES['image'])) { // Form has been s
     <input type = "text" name = "username" placeholder = "User Name" />
     <input type = "password" name = "password" placeholder = "Enter Your Password" />
     <input type = "password" name = "repeatPassword" placeholder = "Repeat Password"/>
-    <input type = "email" name = "email" placeholder = "Enter Your Email"
-           pattern="[a-zA-Z0-9_]{3,}@[a-zA-Z0-9_]{3,}.[a-zA-Z0-9_]{2,4}"
-           title="Please enter a valid email address format: some@name.com"/>
+    <input type = "email" name = "email" placeholder = "Enter Your Email"/>
     <input type = "submit" name = "submition" value = "Submit" /> <br/>
     File:
     <input type="file" name="image"/><br/>

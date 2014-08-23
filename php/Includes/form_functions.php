@@ -48,4 +48,27 @@ function checkUser($user) {
     return false;
 }
 
+function validateMail($mail) {
+    $mail = mysql_real_escape_string($mail);
+}
+
+function isActive($user) {
+    $user = mysql_real_escape_string($user);
+    $sql = "SELECT
+                  COUNT(user_activations.user_id)
+                       FROM users INNER JOIN user_activations ON users.id = user_activations.user_id
+                           WHERE users.username = '{$user}'";
+
+    $myQuery = mysql_query($sql) or die(mysql_error());
+
+    return (mysql_result($myQuery, 0) == '0') ? true : false;
+}
+
+//activates the account related to the given activation code
+function activateAccount($activationId) {
+    $activationId = mysql_real_escape_string($activationId);
+
+    mysql_query("DELETE FROM user_activations WHERE activation_code = '{$activationId}'") or die(mysql_error());
+}
+
 ?>	
