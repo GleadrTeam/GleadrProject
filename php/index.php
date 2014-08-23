@@ -10,9 +10,11 @@ session_start();
 <body>
 <div id="wrapper">
     <h1>SoftUni Overflow | Categories</h1>
-    <p>Please Login</p>
     <?php
+        
         if(!isset($_SESSION['uid'])) {
+            $welcome = "<p>Please Login</p>";
+            echo $welcome;
             echo '<form action="login.php" method="post">' .
                 '<label for="username">Username:</label>' .
                 '<input type="text" name="username" id="username"/>' .
@@ -22,7 +24,8 @@ session_start();
                 ' You are new? ' . '<a href = "create_new_user.php">Register here!</a>';
                 '</form>';
         } else {
-            echo '<p>You are logged in as ' . htmlentities($_SESSION['username']) . " &bull; <a href='logout.php'>Logout</a>";
+            $welcome = "You are logged in as ";
+            echo '<p>' . $welcome . htmlentities($_SESSION['username']) . " &bull; <a href='logout.php'>Logout</a></p>";
         }
     ?>
     <hr/>
