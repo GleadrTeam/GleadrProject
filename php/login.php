@@ -1,4 +1,5 @@
 <?php require_once("includes/functions.php"); ?>
+<?php include_once("includes/form_functions.php"); ?>
 <?php
 session_start();
 include_once("mySQLConnect.php");

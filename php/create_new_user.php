@@ -1,5 +1,5 @@
-<?php require_once("includes/functions.php"); ?>
 <?php include_once("mySQLConnect.php"); ?>
+<?php require_once("includes/functions.php"); ?>
 
 <?php
 include_once("includes/form_functions.php");
