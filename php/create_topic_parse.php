@@ -10,10 +10,9 @@ if(isset($_POST['topic_submit'])) {
         exit();
     } else {
         include_once("mySQLConnect.php");
-        require_once("includes/functions.php");
         $cid = $_POST['cid'];
-        $title = trim(mysql_prep($_POST['topic_title']));
-        $content = trim(mysql_prep($_POST['topic_content']));
+        $title = addslashes($_POST['topic_title']);
+        $content = addslashes($_POST['topic_content']);
         $creator = $_SESSION['uid'];
 
         $sql = "INSERT INTO topics (category_id, topic_title, topic_creator, topic_date, topic_reply_date) VALUES ".
@@ -21,7 +20,7 @@ if(isset($_POST['topic_submit'])) {
         $res = mysql_query($sql) or die(mysql_error());
         $new_topic_id = mysql_insert_id(); // autoincrement
         $sql2 = "INSERT INTO posts (category_id, topic_id, post_creator, post_content, post_date) VALUES " .
-            "('".$cid."', '".$new_topic_id."', '".$creator."', '".$content."', now())";
+            "('".$cid."', '".$new_topic_id."', '". "error"."', '".$content."', now())";
 
         $res2 = mysql_query($sql2) or die(mysql_error());
 

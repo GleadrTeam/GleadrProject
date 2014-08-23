@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once("includes/form_functions.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,11 +45,12 @@ session_start();
                     $res2 = mysql_query($sql2) or die(mysql_error());
                     while($row2 = mysql_fetch_assoc($res2)) {
                         echo "<tr><td valign='top' style='1px solid #000000;'><div style='min-height: 125px;'</td>" .
-                            htmlentities($row['topic_title']) . "<br/>by " . htmlentities($_SESSION['username']) .
+                            htmlentities($row['topic_title']) . "<br/>by " . $row2['post_creator'] .
                             " - " . $row2['post_date'] . "<hr/>" .
                             htmlentities($row2['post_content']) .
                             "</div></td><td width='200' valign='top' align='center' style='border:1px solid #000'>" .
-                            "User Avatar Here</td></tr><tr><td colspan='2'><hr /></td></tr>";
+                            '<img src="data:image/jpeg;base64,'.base64_encode( getImage($row2['post_creator']) ).'" height="210" width="200"/>' .
+                            "</td></tr><tr><td colspan='2'><hr /></td></tr>";
                     }
                     $old_views = $row['topic_views'];
                     $new_views = $old_views + 1;

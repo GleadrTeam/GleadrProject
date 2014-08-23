@@ -71,4 +71,24 @@ function activateAccount($activationId) {
     mysql_query("DELETE FROM user_activations WHERE activation_code = '{$activationId}'") or die(mysql_error());
 }
 
+function getImage($user) {
+    $result = mysql_query("SELECT * FROM users WHERE username='{$user}'") or die(mysql_error());
+
+    while($row = mysql_fetch_array($result)) {
+        $image = $row['image'];
+        return $image;
+    }
+}
+
+function getUsername($id) {
+    $id = mysql_real_escape_string($id);
+    $result = mysql_query("SELECT * FROM users WHERE id='{$id}' LIMIT 1");
+    if($result) {
+        $row = mysql_fetch_assoc($result);
+        return $row['username'];
+    } else {
+        return "error";
+    }
+
+}
 ?>	
