@@ -48,7 +48,12 @@ Notes:	 Hand coded for Udemy.com
         -webkit-font-smoothing: antialiased;
         text-randering: optimizelegibility;
     }
-
+    #btn-newQ span {
+        font-size: 0.8em;
+    }
+    .glyphicon-heart {
+        color: mediumpurple;
+    }
 
 /* --------------------------------------е
    Navbar

@@ -42,7 +42,8 @@
             <div class="page-header clearfix">
                 <h1 class="pull-left">Questions <small>Welcome to Softuni Overflow</small></h1>
 <!--                button 'NEW QUESTION'-->
-                <a href="#" class="btn btn-large btn-default pull-right" id="btn-newQ" >NEW QUESTION</a>
+                <a href="#" class="btn btn-large btn-default pull-right" id="btn-newQ" >
+                    <span class="glyphicon glyphicon-plus"></span> QUESTION</a>
             </div>
         </div>
         <!--        Info message for not logged in: -->
