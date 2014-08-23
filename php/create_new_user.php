@@ -119,13 +119,17 @@ EMAIL;
 <?php if (!empty($errors)) { display_errors($errors); } ?>
 <form method = "post" enctype="multipart/form-data">
     <p>Fill This Form Below</p>
-    <input type = "text" name = "username" placeholder = "User Name" />
-    <input type = "password" name = "password" placeholder = "Enter Your Password" />
-    <input type = "password" name = "repeatPassword" placeholder = "Repeat Password"/>
-    <input type = "email" name = "email" placeholder = "Enter Your Email"/>
+    <label for = "user">Your Username</label>
+    <input type = "text" name = "username" placeholder = "User Name" id = "user" />
+    <label for = "pass">Your Password</label>
+    <input type = "password" name = "password" placeholder = "Enter Your Password" id = "pass" />
+    <label for = "repass">Retype Your Password</label>
+    <input type = "password" name = "repeatPassword" placeholder = "Repeat Password" id = "repass"/>
+    <label for = "mail">Your Email</label>
+    <input type = "email" name = "email" placeholder = "Enter Your Email" id = "mail"/>
     <input type = "submit" name = "submition" value = "Submit" /> <br/>
-    File:
-    <input type="file" name="image"/><br/>
+    <label for = "photo">Choose a Photo</label>
+    <input type="file" name="image" id = "photo"/><br/>
     <br/>
     <a href="index.php">Back to the main page</a><br />
 </form>
