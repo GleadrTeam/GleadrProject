@@ -50,9 +50,9 @@ if (isset($_POST['submition']) && !empty($_FILES['image'])) { // Form has been s
         else {
             if(!empty($_FILES['image']['name'])) {
                 $fileType = $_FILES['image']['type'];
-                $allowed = array("image/jpeg", "image/png", "image/gif");
+                $allowed = array("image/jpeg", "image/gif");
                 $isAllowed = in_array($fileType, $allowed);
-                $isTooLarge = $_FILES['image']['size'] > 200000;
+                $isTooLarge = $_FILES['image']['size'] > 100000;
                 if(!$isTooLarge && $isAllowed) {
                     $query = "INSERT INTO users (
                                     username, password, email, image
@@ -83,8 +83,8 @@ EMAIL;
                         $message .= "<br />" . mysql_error();
                     }
                 } else {
-                    if($isTooLarge) {echo "File should be less than 200 KB!" . PHP_EOL; }
-                    if(!$isAllowed) { echo "Not a valid image format! Allowed formats are jpeg, gif and png!" . PHP_EOL; }
+                    if($isTooLarge) {echo "File should be less than 100 KB!" . PHP_EOL; }
+                    if(!$isAllowed) { echo "Not a valid image format! Allowed formats are jpeg, gif!" . PHP_EOL; }
                 }
             } else {
                 echo "Please upload an image";
