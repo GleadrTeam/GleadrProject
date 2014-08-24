@@ -10,7 +10,8 @@ if(isset($_POST['topic_submit'])) {
         exit();
     } else {
         include_once("mySQLConnect.php");
-        require_once("includes/functions.php");
+        require_once("Includes/functions.php");
+        require_once("Includes/form_functions.php");
         $cid = $_POST['cid'];
         $title = trim(mysql_prep($_POST['topic_title']));
         $content = trim(mysql_prep($_POST['topic_content']));

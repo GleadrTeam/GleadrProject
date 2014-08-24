@@ -21,7 +21,9 @@ include_once("includes/form_functions.php");
             '<input type="submit" name="sub" value="Log In"/>' .
             '</form>';
     } else {
-        echo '<p>You are logged in as ' . htmlentities($_SESSION['username']) . " &bull; <a href='logout.php'>Logout</a>";
+        $cid = $_GET['cid'];
+        echo '<p>You are logged in as ' . "<a href='user_profile.php?uid=" . $_SESSION['uid'] .
+            "'>" . $_SESSION['username'] ."</a>&nbsp;&bull;&nbsp;" . " <a href='logout.php'>Logout</a>";
         echo "&nbsp;&bull; <a href='view_category.php?cid=".$cid."'>Back</a>";
     }
     ?>

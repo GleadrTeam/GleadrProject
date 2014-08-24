@@ -20,7 +20,8 @@ session_start();
             '<input type="submit" name="sub" value="Log In"/>' .
             '</form>';
     } else {
-        echo '<p>You are logged in as ' . htmlentities($_SESSION['username']) . " &bull; <a href='logout.php'>Logout</a>";
+        echo '<p>You are logged in as ' . "<a href='user_profile.php?uid=" . $_SESSION['uid'] .
+            "'>" . $_SESSION['username'] ."</a>&nbsp;&bull;&nbsp;" . " <a href='logout.php'>Logout</a>";
     }
     ?>
     <hr/>

@@ -1,7 +1,8 @@
 <?php
 session_start();
 include_once("mySQLConnect.php");
-require_once("includes/functions.php");
+require_once("Includes/functions.php");
+require_once("Includes/form_functions.php");
 if(isset($_SESSION['uid'])) {
     if(isset($_POST['reply_submit'])) {
         $creator = $_SESSION['uid'];

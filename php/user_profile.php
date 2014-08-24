@@ -10,6 +10,7 @@ include_once("Includes/functions.php");
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+<a href="index.php">Back To Main Page</a>
 <?php
 if(isset($_GET['uid'])) {
     $user = $_GET['uid'];
@@ -85,6 +86,11 @@ if(isset($_GET['uid'])) {
             $result = mysql_query("UPDATE users SET location='{$location}' WHERE id='{$user}'");
 
             if($result) {
+                ?>
+                <script>
+                    location.reload();
+                </script>
+                <?php
                 echo 'Location is set!';
             } else {
                 echo "There was an error setting your location. Please try again later";
@@ -107,6 +113,11 @@ if(isset($_POST['brthdate'])) {
     $result = mysql_query("UPDATE users SET birth_date='{$date}' WHERE id='{$user}'");
 
     if($result) {
+        ?>
+        <script>
+            location.reload();
+        </script>
+        <?php
         echo "Birth date updated!";
     } else {
         echo "There was error in our database. Please try again later!";
