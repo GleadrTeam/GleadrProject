@@ -52,8 +52,8 @@ Notes:	 Hand coded for Udemy.com
         font-size: 0.8em;
     }
     .glyphicon-heart {
-        color: mediumpurple;
-        font-size: 1.5em;
+        color: rgba(147,112,219,0.5);
+        font-size: 1.3em;
     }
 
 /* --------------------------------------е
@@ -75,7 +75,12 @@ Notes:	 Hand coded for Udemy.com
        body > .container > .navbar .active a {
            background-color: #c0c0c0;
            color: #3a3c3c;
-
+       }
+       
+       .navbar input {
+           background-color: #dff0d8;
+           border:2px solid #7aba7b;
+           margin-left: 15px;
        }
       
        body > .container > .navbar a {
