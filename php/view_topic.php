@@ -22,6 +22,7 @@ include_once("includes/form_functions.php");
             '</form>';
     } else {
         echo '<p>You are logged in as ' . htmlentities($_SESSION['username']) . " &bull; <a href='logout.php'>Logout</a>";
+        echo "&nbsp;&bull; <a href='view_category.php?cid=".$cid."'>Back</a>";
     }
     ?>
     <hr/>

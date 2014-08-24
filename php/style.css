@@ -25,3 +25,8 @@ a.cat_links {
 a.cat_links:hover {
     background: #dddddd;
 }
+
+span.info {
+    text-decoration: underline;
+    font-weight: bold;
+}

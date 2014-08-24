@@ -9,9 +9,8 @@ session_start();
 </head>
 <body>
 <div id="wrapper">
-    <h1>SoftUni Overflow | Categories</h1>
+    <h1>SoftUni Overflow | Home</h1>
     <?php
-        
         if(!isset($_SESSION['uid'])) {
             $welcome = "<p>Please Login</p>";
             echo $welcome;
