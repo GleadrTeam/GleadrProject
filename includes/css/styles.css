@@ -52,15 +52,18 @@ Notes:	 Hand coded for Udemy.com
         font-size: 0.8em;
     }
     .glyphicon-heart {
-        color: mediumpurple;
-        font-size: 1.5em;
+        color: rgba(147,112,219,0.5);
+        font-size: 1.3em;
     }
 
 /* --------------------------------------е
    Navbar
    -------------------------------------- */
        body > .container > .navbar {
-           background: #c9e2b3;
+           background: -webkit-linear-gradient(right, #c9e2b3, #7aba7b); /* For Safari 5.1 to 6.0 */
+           background: -o-linear-gradient(left, #c9e2b3, #7aba7b); /* For Opera 11.1 to 12.0 */
+           background: -moz-linear-gradient(left, #c9e2b3, #7aba7b); /* For Firefox 3.6 to 15 */
+           background: linear-gradient(to left, #c9e2bw, #7aba7b); /* Standard syntax (must be last) */
            border-top: 2px solid #7aba7b;
            border-bottom: 6px solid #7aba7b;
            -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
@@ -72,7 +75,12 @@ Notes:	 Hand coded for Udemy.com
        body > .container > .navbar .active a {
            background-color: #c0c0c0;
            color: #3a3c3c;
-
+       }
+       
+       .navbar input {
+           background-color: #dff0d8;
+           border:2px solid #7aba7b;
+           margin-left: 15px;
        }
       
        body > .container > .navbar a {
