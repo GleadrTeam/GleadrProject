@@ -120,18 +120,17 @@ EMAIL;
 <form method = "post" enctype="multipart/form-data">
     <p>Fill This Form Below</p>
     <label for = "user">Your Username</label>
-    <input type = "text" name = "username" placeholder = "User Name" id = "user" />
+    <input type = "text" name = "username" placeholder = "User Name" id = "user" /></br>
     <label for = "pass">Your Password</label>
-    <input type = "password" name = "password" placeholder = "Enter Your Password" id = "pass" />
+    <input type = "password" name = "password" placeholder = "Enter Your Password" id = "pass" /></br>
     <label for = "repass">Retype Your Password</label>
-    <input type = "password" name = "repeatPassword" placeholder = "Repeat Password" id = "repass"/>
+    <input type = "password" name = "repeatPassword" placeholder = "Repeat Password" id = "repass"/></br>
     <label for = "mail">Your Email</label>
-    <input type = "email" name = "email" placeholder = "Enter Your Email" id = "mail"/>
-    <input type = "submit" name = "submition" value = "Submit" /> <br/>
+    <input type = "email" name = "email" placeholder = "Enter Your Email" id = "mail"/></br>
     <label for = "photo">Choose a Photo</label>
-    <input type="file" name="image" id = "photo"/><br/>
-    <br/>
-    <a href="index.php">Back to the main page</a><br />
+    <input type="file" name="image" id = "photo"/></br>
+    <input type = "submit" name = "submition" value = "Submit" /></br>
+    <a href="index.php">Back to the main page</a>
 </form>
 </body>
 </html>
