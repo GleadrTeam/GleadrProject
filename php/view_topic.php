@@ -1,6 +1,16 @@
 <?php
 session_start();
 include_once("sqlconnect.php");
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+if(isset($_POST['like'])) {
+    $voting = addVotes($_POST['like']);
+    header('Location: ' . $actual_link);
+}
+
+if(isset($_POST['dislike'])) {
+    $voting = subVotes($_POST['dislike']);
+    header('Location: ' . $actual_link);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,7 +58,20 @@ include_once("sqlconnect.php");
                     while($row2 = mysql_fetch_assoc($res2)) {
                         echo "<tr><td valign='top' style='1px solid #000000;'><div style='min-height: 125px;'</td>" .
                             htmlentities($row['topic_title']) . "<br/>by " . htmlentities($row2['post_creator']) .
-                            " - " . $row2['post_date'] . "<hr/>" .
+                            " - " . $row2['post_date'] .
+                            "&nbsp;&nbsp;&nbsp;<form action='' method='post'>" .
+                            "<input type='hidden' name='like' value='" . $row2['id'] . "'/>" .
+                            "<input type='submit' name='likeBtn' value='Upvote'/>" .
+                            "</form>&nbsp;&nbsp;&bull;&nbsp;&nbsp;";
+                        echo $row2['votes'];
+                        echo "&nbsp;&nbsp;&bull;&nbsp;&nbsp;" .
+                            "<form action='' method='post'>" .
+                            "<input type='hidden' name='dislike' value='" . $row2['id'] . "'/>" .
+                            "<input type='submit' name='dislikeBtn' value='Downvote'/>" .
+                            "</form>" .
+
+
+                            "<hr/>" .
                             htmlentities($row2['post_content']) .
                             "</div></td><td width='200' valign='top' align='center' style='border:1px solid #000'>" .
                             '<img src="data:image/jpeg;base64,'.base64_encode( getImage($row2['post_creator']) ).'" height="210" width="200"/>' .

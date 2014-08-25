@@ -89,6 +89,52 @@ function getUsername($id) {
     } else {
         return "error";
     }
+}
 
+function addVotes($id) {
+    $user = mysql_real_escape_string($id);
+
+    $sql = "SELECT * FROM posts WHERE id='{$id}' LIMIT 1";
+
+    $getVotes = mysql_query($sql) or die(mysql_error());
+
+    if($getVotes) {
+        $row = mysql_fetch_assoc($getVotes);
+        $votes = $row['votes'];
+        $id = $row['id'];
+        $sql2 = "UPDATE posts SET votes='{$votes}' + 1 WHERE id='{$id}'";
+
+        $result2 = mysql_query($sql2) or die(mysql_error());
+
+        if($result2) {
+            return $votes + 1;
+        } else {
+            return "Error in database - votes column";
+        }
+    }
+}
+
+function subVotes($id) {
+    $user = mysql_real_escape_string($id);
+
+    $sql = "SELECT * FROM posts WHERE id='{$id}' LIMIT 1";
+
+    $getVotes = mysql_query($sql) or die(mysql_error());
+
+    if($getVotes) {
+        $row = mysql_fetch_assoc($getVotes);
+        $votes = $row['votes'];
+        if($votes == 0) { $votes = 1; }
+        $id = $row['id'];
+        $sql2 = "UPDATE posts SET votes='{$votes}' - 1 WHERE id='{$id}'";
+
+        $result2 = mysql_query($sql2) or die(mysql_error());
+
+        if($result2) {
+            return $votes - 1;
+        } else {
+            return "Error in database - votes column";
+        }
+    }
 }
 ?>	

@@ -42,7 +42,7 @@ include_once("sqlconnect.php");
         $sql = "SELECT id FROM categories WHERE id='".$cid."' LIMIT 1";
         $res = mysql_query($sql) or die(mysql_error());
         if(mysql_num_rows($res) == 1) {
-            $sql2 = "SELECT * FROM topics WHERE category_id='".$cid."' ORDER BY topic_reply_date DESC";
+            $sql2 = "SELECT * FROM topics WHERE category_id='".$cid."' ORDER BY topic_reply_date ASC";
             $res2 = mysql_query($sql2) or die(mysql_error());
             $topics = '';
             if(mysql_num_rows($res2) > 0) {
