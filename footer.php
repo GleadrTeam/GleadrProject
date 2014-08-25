@@ -1,4 +1,5 @@
 <!--footer goes here-->
+<!--TODO ad hyperlinks to Softuni-->
 <footer>
 <!--    this is bootstrap 3 container class -->
     <div class="container">
