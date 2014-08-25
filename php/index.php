@@ -39,7 +39,7 @@ include_once("sqlconnect.php");
 <div id="content">
 <?php
 $sql = "SELECT * FROM categories ORDER BY category_title ASC";
-$res = mysql_query($sql) or die(sqlite_error());
+$res = mysql_query($sql) or die(mysql_error());
 
 if(mysql_num_rows($res) > 0) {
     $categories = "";
