@@ -1,6 +1,8 @@
 <?php
 session_start();
 include_once("sqlconnect.php");
+$page = (isset($_GET['page'])) ? (int) $_GET['page'] : 1;
+//we want n posts per page
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,32 +44,12 @@ include_once("sqlconnect.php");
         $sql = "SELECT id FROM categories WHERE id='".$cid."' LIMIT 1";
         $res = mysql_query($sql) or die(mysql_error());
         if(mysql_num_rows($res) == 1) {
-            $sql2 = "SELECT * FROM topics WHERE category_id='".$cid."' ORDER BY topic_reply_date ASC";
-            $res2 = mysql_query($sql2) or die(mysql_error());
-            $topics = '';
-            if(mysql_num_rows($res2) > 0) {
-                $topics .= "<table width='100%' style='border-collapse: collapse;' id='topics-table'>";
-                $topics .= "<tr><td colspan='3'><a href='index.php'>Return To Forum Index</a>" . $logged . "<hr/></td></tr>";
-                $topics .= "<tr style='background-color:#dddddd;'><td>Topic Title</td><td width='65' align='center'>Replies</td>";
-                $topics .= "<td width='65' align='center'>Views</td></tr>";
-                $topics .= "<tr><td colspan='3'><hr/></td></tr>";
+            fetchTopics($cid, $page, 5, $logged);
 
-                while($row = mysql_fetch_assoc($res2)) {
-                    $tid = $row['id'];
-                    $title = $row['topic_title'];
-                    $views = $row['topic_views'];
-                    $date = $row['topic_date'];
-                    $creator = $row['topic_creator'];
-                    $topics .= "<tr><td><a href='view_topic.php?cid=" . $cid . "&tid=" . $tid . "'>" . htmlentities($title) . "</a><br/>";
-                    $topics .= "<span class='post_info'>Posted by: " . htmlentities($creator) . " on " . $date . "</span></td>";
-                    $topics .= "<td align='center'>0</td><td align='center'>" . $views . "</td></tr>";
-                    $topics .= "<tr><td colspan='3'><hr/></td></tr>";
-                }
-                $topics .= "</table>";
-                echo $topics;
-            } else {
-                echo "<a href='index.php'>Return To Forum Index</a><hr/>";
-                echo "<p>There are no topics in this category yet." . $logged . "</p>";
+            $totalPages = ceil(fetchTotalTopics($cid) / 5);
+
+            for($i = 1; $i <= $totalPages; $i++) {
+                echo " <a href =\"view_category.php?cid={$cid}&page={$i}\">{$i}</a> ";
             }
         } else {
             echo "<a href='index.php'>Return To Forum Index</a><hr/>";
