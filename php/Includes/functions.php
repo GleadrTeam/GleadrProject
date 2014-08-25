@@ -48,13 +48,14 @@ function fetchTopics($cid, $page, $perPage, $logged) {
 
         while($row = mysql_fetch_assoc($res2)) {
             $tid = $row['id'];
+	    $result = mysql_query("SELECT COUNT(id) FROM posts WHERE category_id='{$cid}' AND topic_id='{$tid}'") or die(mysql_error());
             $title = $row['topic_title'];
             $views = $row['topic_views'];
             $date = $row['topic_date'];
             $creator = $row['topic_creator'];
             $topics .= "<tr><td><a href='view_topic.php?cid=" . $cid . "&tid=" . $tid . "'>" . htmlentities($title) . "</a><br/>";
             $topics .= "<span class='post_info'>Posted by: " . htmlentities($creator) . " on " . $date . "</span></td>";
-            $topics .= "<td align='center'>0</td><td align='center'>" . $views . "</td></tr>";
+            $topics .= "<td align='center'>" . mysql_result($result, 0) . "</td><td align='center'>" . $views . "</td></tr>";
             $topics .= "<tr><td colspan='3'><hr/></td></tr>";
         }
         $topics .= "</table>";
@@ -121,9 +122,4 @@ function fetchPosts($cid, $tid, $page, $perPage) {
     }
 }
 
-function getPostsCount($cid, $tid) {
-    $result = mysql_query("SELECT COUNT(id) FROM posts WHERE category_id='{$cid}' AND topic_id='{$tid}'") or die(mysql_error());
-
-    return mysql_result($result, 0);
-}
 ?>
