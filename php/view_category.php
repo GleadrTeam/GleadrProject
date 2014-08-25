@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once("sqlconnect.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,10 +25,13 @@ session_start();
             "'>" . $_SESSION['username'] ."</a>&nbsp;&bull;&nbsp;" . " <a href='logout.php'>Logout</a>";
     }
     ?>
+    <form action="search_posts.php" method="get" class="search-bar">
+        <input type="text" name="search" id="search-bar"/>
+        <input type="submit" name="submitSearch" value="Search"/>
+    </form>
     <hr/>
     <div id="content">
         <?php
-        include_once("mySQLConnect.php");
         $cid = $_GET['cid'];
 
         if(isset($_SESSION['uid'])) {
@@ -59,7 +63,6 @@ session_start();
                     $topics .= "<td align='center'>0</td><td align='center'>" . $views . "</td></tr>";
                     $topics .= "<tr><td colspan='3'><hr/></td></tr>";
                 }
-
                 $topics .= "</table>";
                 echo $topics;
             } else {
@@ -70,7 +73,6 @@ session_start();
             echo "<a href='index.php'>Return To Forum Index</a><hr/>";
             echo "<p>You are trying to view a category that doesn`t exist yet";
         }
-
         ?>
     </div>
 </div>

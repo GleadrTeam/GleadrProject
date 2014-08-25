@@ -1,12 +1,7 @@
-<?php include_once("mySQLConnect.php"); ?>
-<?php require_once("includes/functions.php"); ?>
-
 <?php
-include_once("includes/form_functions.php");
-
+include_once("sqlconnect.php");
 if (isset($_POST['submition']) && !empty($_FILES['image'])) { // Form has been submitted.
     $errors = array();
-
     // perform validations on the form data
     $required_fields = array('username', 'password', 'repeatPassword', 'email');
     $errors = array_merge($errors, check_required_fields($required_fields, $_POST));
@@ -105,14 +100,10 @@ EMAIL;
     $password = "";
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <style>
-
-    </style>
+    <title>Create New Account</title>
 </head>
 <body>
 <?php if (!empty($message)) {echo "<p class=\"message\">" . $message . "</p>";} ?>

@@ -2,7 +2,7 @@
 <?php include_once("includes/form_functions.php"); ?>
 <?php
 session_start();
-include_once("mySQLConnect.php");
+include_once("sqlconnect.php");
 
 if(isset($_POST['username'])) {
 

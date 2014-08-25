@@ -6,7 +6,6 @@ if(!isset($_SESSION['uid']) || !isset($_GET['cid'])) {
     header("Location: index.php");
     exit();
 }
-
 $cid = $_GET['cid'];
 $tid = $_GET['tid'];
 ?>

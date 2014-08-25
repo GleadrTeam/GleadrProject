@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("includes/form_functions.php");
+include_once("sqlconnect.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +30,6 @@ include_once("includes/form_functions.php");
     <hr/>
     <div id="content">
         <?php
-        include_once("mySQLConnect.php");
         if(isset($_GET['cid']) && isset($_GET['tid'])) {
             $cid = $_GET['cid'];
             $tid = $_GET['tid'];

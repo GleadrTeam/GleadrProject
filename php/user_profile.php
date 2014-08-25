@@ -1,7 +1,6 @@
 <?php
 session_start();
-include_once("mySQLConnect.php");
-include_once("Includes/functions.php");
+include_once("sqlconnect.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +13,6 @@ include_once("Includes/functions.php");
 <?php
 if(isset($_GET['uid'])) {
     $user = $_GET['uid'];
-
     $result = mysql_query("SELECT * FROM users WHERE id='{$user}' LIMIT 1") or die(mysql_error());
 
     if($result) {
@@ -22,7 +20,6 @@ if(isset($_GET['uid'])) {
         $username = $row['username'];
         $email = $row['email'];
         $image = $row['image'];
-
 
         echo '<p>Hello, <span class="info">' . $username . '</span></p>';
         echo 'Your email is: <span class="info">' . $email . '</span><br/>';
@@ -34,7 +31,6 @@ if(isset($_GET['uid'])) {
         echo '<hr/>';
         echo '<br/>';
 ?>
-
         <form action="" method="post" enctype="multipart/form-data">
             <label for="avatar">Edit Profile Picture:</label>
             <input type="file" name="avatar" id="avatar"/>

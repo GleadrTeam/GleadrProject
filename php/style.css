@@ -30,3 +30,13 @@ span.info {
      text-decoration: underline;
      font-weight: bold;
  }
+
+form {
+    display: inline-block;
+}
+
+form.search-bar {
+    float:right;
+    clear: both;
+    vertical-align: top;
+}

@@ -9,7 +9,7 @@ if(isset($_POST['topic_submit'])) {
         echo "Please fill out both fields, please return to the previous page";
         exit();
     } else {
-        include_once("mySQLConnect.php");
+        include_once("sqlconnect.php");
         require_once("Includes/functions.php");
         require_once("Includes/form_functions.php");
         $cid = $_POST['cid'];

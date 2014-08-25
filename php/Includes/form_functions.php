@@ -1,5 +1,5 @@
 <?php
-include_once("mySQLConnect.php");
+include_once("sqlconnect.php");
 
 function check_required_fields($required_array) {
     $field_errors = array();
