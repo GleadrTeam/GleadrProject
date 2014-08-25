@@ -1,7 +1,6 @@
 <?php
 session_start();
 include_once("sqlconnect.php");
-include_once("search_posts.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,11 +25,11 @@ include_once("search_posts.php");
             '<label for="pass">Password:</label>' .
             '<input type="password" name="pass" id="pass"/>' .
             '<input type="submit" name="sub" value="Log In"/>' .
-            ' You are new? ' . '<a href = "create_new_user.php">Register here!</a>';
+            ' You are new? ' . '<a href = "create_new_user.php">Register here!</a>' .
         '</form>';
         ?>
         <form action="search_posts.php" method="get" class="search-bar">
-            <input type="text" name="search" id="search-bar"/>
+            <input type="text" name="term" id="search-bar"/>
             <input type="submit" name="submitSearch" value="Search"/>
         </form>
         <?php
