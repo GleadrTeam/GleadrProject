@@ -17,7 +17,7 @@ Notes:	 Hand coded for Udemy.com
         height: 100%;
     }
     body > .container {
-        min-height: 88%;
+        min-height: 85%;
     }
     footer {
         background: #333;
@@ -28,6 +28,9 @@ Notes:	 Hand coded for Udemy.com
         border-bottom: 5px solid #7aba7b;
         -webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
         transition: 2s;
+        height: 13%;
+        min-height: 120px;
+
 
     }
     footer > #footer-about {
