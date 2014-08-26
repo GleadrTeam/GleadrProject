@@ -41,6 +41,16 @@ Notes:	 Hand coded for Udemy.com
     footer:hover {
         border-color: #449d44;
     }
+    .userProfilePage label {
+        font-weight: normal;
+    }
+    .userProfilePage hr {
+        border-color: #c9e2b3;
+        box-shadow: 0 0 10px 1px #d0e9c6;
+    }
+    .userProfilePage:hover {
+        cursor: default !important;
+    }
 
 /* --------------------------------------
    Typography
@@ -71,7 +81,11 @@ Notes:	 Hand coded for Udemy.com
             color: #777777;
             font-size: 0.6em;
         }
-
+        input[type=file] {
+            display: inline-block;
+            padding-top: 5px;
+            vertical-align: bottom;
+        }
         .page-header #helloMessage {
             color: #999999;
         }
@@ -89,6 +103,9 @@ Notes:	 Hand coded for Udemy.com
         .well-large p {
             font-size: 1.2em;
             color: #474949;
+        }
+        .well-small p {
+
         }
 
 /* --------------------------------------е
@@ -153,6 +170,7 @@ Notes:	 Hand coded for Udemy.com
             }
             body > .container > .navbar  .dropdown-menu a {
                 color: #ffffff;
+                background-color: transparent;
             }
             body > .container > .navbar  .dropdown-menu li > a:hover, body > .container > .navbar  .dropdown-menu li > a:focus {
                 background: none;
@@ -186,7 +204,9 @@ Notes:	 Hand coded for Udemy.com
     .btn-success {
         background-color: #fbd95b;
     }
-    
+    .btn-large {
+        margin-bottom: 15px;
+    }
     #loginModal button {
         background-color: #c0c0c0;
         color: dimgray;
@@ -216,7 +236,7 @@ Notes:	 Hand coded for Udemy.com
 
     .well {
         box-shadow: 0 0 15px 1px #bce8f1;
-        margin: 20px 0;
+        margin: 20px 10px;
     }
     .well:hover {
         box-shadow: 0 0 25px 1px lightgray;

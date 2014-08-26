@@ -364,7 +364,7 @@ EMAIL;
             <div class="form-group">
                 <label class="col-lg-2 control-label" for="photo">Upload avatar: </label>
                 <div class="col-lg-10" >
-                    <input type="file" name="image" id="photo" class="form-control" />
+                    <input type="file" name="image" id="photo" class="input-group" />
                 </div>
             </div> <!-- end of confirm password field -->
 
