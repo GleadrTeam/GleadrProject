@@ -306,7 +306,7 @@ EMAIL;
             <div class="alert alert-alert alert-block showAlert">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <p><?php echo $message  ?></p>
-            </div> 
+            </div>
         <?php
         } ?>
         <?php if (!empty($errors)) {

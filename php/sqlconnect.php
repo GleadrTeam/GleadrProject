@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $username = "root";
-$password = "DE45tgfd";
+$password = "123456git ";
 $db = "softunioverflow";
 
 mysql_connect($host, $username, $password) or die(mysql_error());
