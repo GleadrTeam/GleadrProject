@@ -44,15 +44,15 @@ if(isset($_SESSION['uid'])) {
                 <span class="icon-bar"></span>
             </button>
             <!-- Logo goes here -->
-            <a class="navbar-brand" href="/"><b>Softuni</b><br/>Overflow</a>
+            <a class="navbar-brand" href="../php/"><b>Softuni</b><br/>Overflow</a>
 
             <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav pull-right">
                     <li class="active">
-                        <a href="#">Home</a>
+                        <a href="../php/">Home</a>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <a href="../php/about.php">About</a>
                     </li>
                     <!-- Account button goes here-->
                     <li class="dropdown">

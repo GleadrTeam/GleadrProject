@@ -227,6 +227,9 @@ Notes:	 Hand coded for Udemy.com
         border: 0;
         display: none;
     }
+    #user {
+        margin-top: 15px;
+    }
 
 
 

@@ -44,15 +44,15 @@ if(isset($_SESSION['uid'])) {
                 <span class="icon-bar"></span>
             </button>
             <!-- Logo goes here -->
-            <a class="navbar-brand" href="/"><b>Softuni</b><br/>Overflow</a>
+            <a class="navbar-brand" href="../php/"><b>Softuni</b><br/>Overflow</a>
 
             <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav pull-right">
-                    <li class="active">
-                        <a href="#">Home</a>
+                    <li>
+                        <a href="../php/">Home</a>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <a href="../about.php">About</a>
                     </li>
                     <!-- Account button goes here-->
                     <li class="dropdown">
@@ -196,18 +196,35 @@ if(isset($_SESSION['uid'])) {
 
                 if(checkUser($username) || checkMail($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        echo "<p>Invalid email address</p>";
+                        ?>
+                        <div class="alert alert-block showAlert">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <p>Invalid email address.</p>
+                        </div> <br/>
+                    <?php
+
                     }
                     if(checkMail($email)) {
-                        echo "<p>This email address has already been registered!</p>";
+                        ?>
+                        <div class="alert alert-block showAlert">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <p>This email address has already been registered!</p>
+                        </div> <br/>
+                    <?php
+
                     }
                     if(checkUser($username)) {
-                        echo "This username has been taken. You can try some of the following suggestions:";
-                        echo '<ul>';
+                        ?>
+                        <div class="alert alert-block showAlert">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <p>This username has been taken. Try onther one.</p>
+                        </div> <br/>
+                        <?php
+                        /*echo '<ul>';
                         for($i = 0; $i < 5 ;$i++) {
                             echo '<li>' . $username . rand(10, 100) . '</li>';
                         }
-                        echo '</ul>';
+                        echo '</ul>';*/
                     }
                 }
                 else {
@@ -239,23 +256,20 @@ EMAIL;
                             mysql_query($newQuery, $connection) or die(mysql_error());
                             $result = mysql_query($query, $connection);
                             if ($result) {
-                                $message = "The user was successfully created.";
                                 ?>
-
                                 <div class="alert alert-success alert-block showAlert">
                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <p><?php echo $message ?></p>
+                                    <p>Your profile was successfully created.
+                                    <button class="btn btn-default" data-toggle="modal" data-target="#loginModal">LOGIN</button>
+                                    </p>
                                 </div> <br/>
-
                                 <?php
-
+                                $registrationSuccess = true;
                             } else {
-                                $message = "The user could not be created.";
-                                $message .= "<br />" . mysql_error();
                                 ?>
                                 <div class="alert alert-danger alert-block showAlert">
                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <p><?php echo $message ?></p>
+                                    <p>The user could not be created. <?php echo mysql_error(); ?></p>
                                 </div> <br/>
 
                             <?php
@@ -303,7 +317,7 @@ EMAIL;
         ?>
         <?php if (!empty($message)) {
             ?>
-            <div class="alert alert-alert alert-block showAlert">
+            <div class="alert alert-block showAlert">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <p><?php echo $message  ?></p>
             </div>
@@ -317,6 +331,11 @@ EMAIL;
             </div> <br/>
         <?php
         } ?>
+        <?php
+            if ($registrationSuccess) {
+
+            } else {
+        ?>
         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
             <div class="form-group">
                 <label class="col-lg-2 control-label" for="user">User: </label>
@@ -356,6 +375,9 @@ EMAIL;
             <br/>
             <input class="btn btn-primary btn-large pull-right" type="submit" name="submition" value="REGISTER">
         </form>
+        <?php
+            }
+        ?>
 
     </div><!-- end mainRow row -->
 
