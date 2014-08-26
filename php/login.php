@@ -1,11 +1,12 @@
+
 <?php require_once("includes/functions.php"); ?>
 <?php include_once("includes/form_functions.php"); ?>
 <?php
+
 session_start();
 include_once("sqlconnect.php");
 
 if(isset($_POST['username'])) {
-
     $username = trim(mysql_prep($_POST['username']));
     $hashed_password = sha1(trim(mysql_prep($_POST['pass'])));
     $sql = "SELECT * FROM users WHERE username='".$username."' AND password='".$hashed_password."' LIMIT 1";

@@ -28,10 +28,8 @@ Notes:	 Hand coded for Udemy.com
         border-bottom: 5px solid #7aba7b;
         -webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
         transition: 2s;
-        height: 13%;
+        height: 15%;
         min-height: 120px;
-
-
     }
     footer > #footer-about {
         padding:0;
@@ -58,11 +56,34 @@ Notes:	 Hand coded for Udemy.com
         color: rgba(147,112,219,0.5);
         font-size: 1.3em;
     }
+    .page-header small {
+        font-family: Consolas, sans-serif;
+        font-style: italic;
+        color: darkseagreen;
+    }
+        .page-header #helloMessage {
+            color: #999999;
+        }
+    .well > h3 {
+        margin: 7px 0 13px 0 ;
+        padding-bottom: 1px;
+        font-weight: bold;
+        color: #5e5e5e;
+        border-bottom: 3px solid #e5e5e5;
+    }
+        .well > h3 > span {
+            color: #7aba7b;
+            font-weight: normal;
+        }
+        .well-large p {
+            font-size: 1.2em;
+            color: #474949;
+        }
 
 /* --------------------------------------е
    Navbar
    -------------------------------------- */
-       body > .container > .navbar {
+        body > .container > .navbar {
            background: -webkit-linear-gradient(left, #c9e2b3, #7aba7b); /* For Safari 5.1 to 6.0 */
            background: -o-linear-gradient(left, #c9e2b3, #7aba7b); /* For Opera 11.1 to 12.0 */
            background: -moz-linear-gradient(left, #c9e2b3, #7aba7b); /* For Firefox 3.6 to 15 */
@@ -71,28 +92,28 @@ Notes:	 Hand coded for Udemy.com
            border-bottom: 6px solid #7aba7b;
            -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
            transition: 0.5s;
-       }
-       body > .container > .navbar:hover {
+        }
+        body > .container > .navbar:hover {
            box-shadow: 0 0 25px 1px darkgray;
-       }
-       body > .container > .navbar .active a {
-           background-color: #c0c0c0;
+        }
+        body > .container > .navbar .active a {
+           background-color: #dff0d8;
            color: #3a3c3c;
-       }
-       
-       .navbar input {
+        }
+
+        .navbar input {
            background-color: #dff0d8;
            border:2px solid #7aba7b;
            margin-left: 15px;
-       }
-      
-       body > .container > .navbar a {
-           color: dimgray;
-       }
-        body > .container > .navbar li > a:hover {
-            color: #000000;
         }
-       body > .container > .navbar .navbar-brand {
+
+        body > .container > .navbar a {
+           color: dimgray;
+        }
+        body > .container > .navbar li > a:hover {
+            color: #222222;
+        }
+        body > .container > .navbar .navbar-brand {
            font-size: 1.8em;
            line-height: 0.8em;
            padding: 5px 15px 5px 15px;
@@ -100,39 +121,40 @@ Notes:	 Hand coded for Udemy.com
            background: #7aba7b;
            -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
            transition: 0.5s;
-       }
-       body > .container > .navbar .navbar-brand:hover {
-           color: #bce8f1;
-       }
-       #searchInput {
+        }
+            body > .container > .navbar .navbar-brand:hover {
+               color: #fbd95b;
+            }
+        #searchInput {
            width: 200px;
-       }
-       body > .container > .navbar #user-control {
+        }
+        body > .container > .navbar #user-control {
            color: dimgray;
-       }
-
-        body > .container > .navbar  .dropdown-menu {
-            background-color: #7aba7b;
-            border: 0;
-            box-shadow: 0 0 15px 2px darkgray;
-            border-radius: 0;
         }
-        body > .container > .navbar  .dropdown-menu a {
-            color: #ffffff;
-            font-weight: bold;
-        }
-        body > .container > .navbar  .dropdown-menu li > a:hover, body > .container > .navbar  .dropdown-menu li > a:focus {
-            background: none;
-            color: dimgray;
-        }
+            body > .container > .navbar #user-control:hover {
+                color: #222222;
+            }
+            body > .container > .navbar  .dropdown-menu {
+                background-color: #7aba7b;
+                border: 0;
+                box-shadow: 0 0 15px 2px darkgray;
+                border-radius: 0;
+            }
+            body > .container > .navbar  .dropdown-menu a {
+                color: #ffffff;
+            }
+            body > .container > .navbar  .dropdown-menu li > a:hover, body > .container > .navbar  .dropdown-menu li > a:focus {
+                background: none;
+                color: #222222;
+            }
         body > .container > .navbar > .container > button {
             border: 1px solid dimgray;
             box-shadow: 0 0 6px 3px dimgray inset;
             border-radius: 0;
         }
-        body > .container > .navbar > .container > button > .icon-bar {
-            background-color: dimgray;
-        }
+            body > .container > .navbar > .container > button > .icon-bar {
+                background-color: dimgray;
+            }
     /* --------------------------------------
        Carousel
        -------------------------------------- */
@@ -142,18 +164,20 @@ Notes:	 Hand coded for Udemy.com
 /* --------------------------------------
    Global Styles
    -------------------------------------- */
-    body > .container .btn {
-        bottom: 30px;
-        background-color: #ffb731;
+    .btn {
+        background-color: #fbd95b;
         border: none;
         border-radius: 0;
         color: #356635;
         -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
         transition: 0.5s;
     }
+    .btn-success {
+        background-color: #fbd95b;
+    }
     
     #loginModal button {
-        background-color: #a6e1ec;
+        background-color: #c0c0c0;
         color: dimgray;
         -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
         transition: 0.5s;
@@ -164,10 +188,11 @@ Notes:	 Hand coded for Udemy.com
     
     body > .container .btn:hover {
         background: goldenrod;
+        color: #356635;
 
     }
     body > .container .page-header  {
-        padding-top: 20px;
+        padding-top: 32px;
         padding-bottom: 0;
     }
 
@@ -185,17 +210,7 @@ Notes:	 Hand coded for Udemy.com
         display: none;
     }
 
-    .well > h3 {
-        margin: 7px 0 13px 0 ;
-        padding-bottom: 1px;
-        font-weight: bold;
-        color: #808080;
-        border-bottom: 3px solid #e5e5e5;
-    }
-    .well > h3 > span {
-        color: #7aba7b;
-        font-weight: normal;
-    }
+
 
 /* --------------------------------------
    Media Queries

@@ -1,5 +1,5 @@
 <?php
-include("Includes/form_functions.php");
+include("includes/form_functions.php");
 
 if(isset($_GET['aid'])) {
     activateAccount($_GET['aid']);
