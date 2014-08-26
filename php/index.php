@@ -87,7 +87,7 @@ if(isset($_SESSION['uid'])) {
                                     <!-- Bootstrap menu list divider: -->
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="#">Sign Up</a>
+                                        <a href="create_new_user.php">Sign Up</a>
                                     </li>
                                 </ul><!-- end drop down options list for User -->
                                 <?php
@@ -108,12 +108,17 @@ if(isset($_SESSION['uid'])) {
 
     <div class="row col-12" id="mainRow">
         <!-- Modal window for LOGIN goes here -->
-        <div class="modal fade" id="loginModal">
+
+        <div class="modal fade <?php
+        if ($_SESSION['loginAttempt'] == 'fail') {
+            echo 'in';
+        }
+        ?>" id="loginModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button class="close" data-dismiss="modal">&times;</button><!-- this was X close button -->
-                        <h4>Login</h4>
+                        <button class="close" data-dismiss="modal" id="loginClose">&times;</button><!-- this was X close button -->
+                        <h4>LOGIN</h4>
                     </div><!-- end of modal header-->
                     <form action="login.php" method="post" class="form-horizontal">
                         <div class="modal-body">
@@ -129,15 +134,27 @@ if(isset($_SESSION['uid'])) {
                                         <input type="password" name="pass" id="pass" placeholder="Your password ..." class="form-control"/>
                                     </div>
                                 </div> <!-- end of password name field -->
-                        </div><!-- end of modal body -->
+                                <?php
+                                if ($_SESSION['loginAttempt'] == 'fail') {
+                                ?>
+                                    <div class="alert alert-danger alert-block showAlert">
+                                        <p>Wrong username or password.</p>
+                                    </div>
+                                <?php
+                                    $_SESSION['loginAttempt'] = 'ok';
+                                }
+                                ?>
+                        </div> <!-- end of modal body -->
                         <div class="modal-footer">
-                            <button class="btn btn-default" data-dismiss="modal" type="button">CANCEL</button>
+                            <button class="btn btn-default" data-dismiss="modal" type="button" id="loginCancel">CANCEL</button>
                             <input class="btn btn-primary" type="submit" name="sub" value="LOG IN">
-                        </div>
+                        </div> <!-- modal-footer ends here -->
                     </form>
                 </div><!-- modal content end-->
             </div><!-- modal dialog end -->
         </div> <!-- end of login modal window -->
+
+
 
         <!--        Main header: -->
         <div id="contentHeader" >
@@ -196,7 +213,6 @@ if(isset($_SESSION['uid'])) {
                     </p>
                 </div>
                 <?php
-
             }
             //echo $categories;
         } else {

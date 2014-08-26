@@ -56,11 +56,22 @@ Notes:	 Hand coded for Udemy.com
         color: rgba(147,112,219,0.5);
         font-size: 1.3em;
     }
-    .page-header small {
-        font-family: Consolas, sans-serif;
-        font-style: italic;
-        color: darkseagreen;
+    body > .container .page-header  {
+        padding-top: 32px;
+        padding-bottom: 0;
     }
+        #regHeader h1 {
+            background-color: #7aba7b;
+            color: #ffffff;
+            padding: 5px;
+            font-size: 1.8em;
+            font-family: inherit;
+        }
+        #regHeader small {
+            color: #777777;
+            font-size: 0.6em;
+        }
+
         .page-header #helloMessage {
             color: #999999;
         }
@@ -185,15 +196,22 @@ Notes:	 Hand coded for Udemy.com
     #loginModal button:hover {
         background: #d6e9c6;
     }
+        .modal-header {
+            background-color: #7aba7b;
+        }
+        .modal.in {
+            display: block;
+        }
+        .showAlert {
+            display: block !important;
+            margin-bottom: 0;
+            text-align: right;
+        }
     
     body > .container .btn:hover {
         background: goldenrod;
         color: #356635;
 
-    }
-    body > .container .page-header  {
-        padding-top: 32px;
-        padding-bottom: 0;
     }
 
     .well {

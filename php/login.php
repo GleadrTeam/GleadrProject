@@ -1,8 +1,6 @@
-
 <?php require_once("includes/functions.php"); ?>
 <?php include_once("includes/form_functions.php"); ?>
 <?php
-
 session_start();
 include_once("sqlconnect.php");
 
@@ -22,9 +20,8 @@ if(isset($_POST['username'])) {
             echo "This account hasn`t been activated yet! Please visit your email and click the activation link";
         }
     } else {
-        echo "Wrong username/password. Please return to the previous page and try again!";
-        echo '<br/><a href="index.php">Back to the main page</a><br />';
+        $_SESSION['loginAttempt'] = 'fail';
+        header("Location: index.php");
     }
 }
-
 ?>

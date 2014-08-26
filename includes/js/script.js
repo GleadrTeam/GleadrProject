@@ -15,8 +15,13 @@ $(function() {
         $d = $('#loginAlert');
         $('#loginAlert').slideDown();
         console.log($d);
+    });
 
-
+    $('#loginCancel').click( function() {
+        $('#loginModal').hide();
+    });
+    $('#loginClose').click( function() {
+        $('#loginModal').hide();
     });
 
 });
