@@ -40,3 +40,7 @@ form.search-bar {
     clear: both;
     vertical-align: top;
 }
+
+a:hover {
+    text-decoration: none;
+}

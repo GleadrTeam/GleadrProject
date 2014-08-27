@@ -12,6 +12,10 @@ if(isset($_SESSION['uid'])) {
     // user is either not logged or not registered :
     $isLogged = false;
 }
+
+if(!isset($_SESSION['loginAttempt'])) {
+    $_SESSION['loginAttempt'] = 'ok';
+}
 ?>
 
 <!doctype html>
@@ -29,8 +33,10 @@ if(isset($_SESSION['uid'])) {
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
     <!--Custom CSS-->
     <link rel="stylesheet" href="../includes/css/styles.css"/>
+    <link rel="stylesheet" href="style.css"/>
     <!--Include Modernizr in the hand, before any other JavaScript (for older browsers)-->
     <script src="../includes/js/modernizr-2.6.2.min.js"></script>
+
 </head>
 <body>
 <div class="container fill" id="main">
@@ -113,7 +119,7 @@ if(isset($_SESSION['uid'])) {
         if ($_SESSION['loginAttempt'] == 'fail') {
             echo 'in';
         }
-        ?>" id="loginModal">
+        ?>"  id="loginModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -198,6 +204,7 @@ if(isset($_SESSION['uid'])) {
                 $description = $row['category_description'];
                 //$categories .= "<a href='view_category.php?cid=".$id."' class='cat_links'>".$title ." - <font size='-1'>".$description."</font></a></br>";
                 ?>
+                <a href="view_category.php?cid=<?php echo $id ?>">
                 <div class="well well-large">
 
                     <h3>
@@ -212,6 +219,7 @@ if(isset($_SESSION['uid'])) {
                         ?>
                     </p>
                 </div>
+                </a>
                 <?php
             }
             //echo $categories;

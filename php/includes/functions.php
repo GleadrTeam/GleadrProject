@@ -120,6 +120,14 @@ function fetchPosts($cid, $tid, $page, $perPage) {
     } else {
         echo "This topic does not exist!";
     }
+
+
+}
+
+function getPostsCount($cid, $tid) {
+    $result = mysql_query("SELECT COUNT(id) FROM posts WHERE category_id={$cid} AND topic_id={$tid}") or die(mysql_error());
+
+    return mysql_result($result, 0);
 }
 
 ?>
