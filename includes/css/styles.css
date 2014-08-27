@@ -107,6 +107,10 @@ Notes:	 Hand coded for Udemy.com
         .well-small p {
 
         }
+        .newTopic label {
+            font-weight: normal;
+
+        }
 
 /* --------------------------------------е
    Navbar
@@ -249,6 +253,10 @@ Notes:	 Hand coded for Udemy.com
     }
     #user {
         margin-top: 15px;
+    }
+
+    a:hover {
+        text-decoration: none;
     }
 
 

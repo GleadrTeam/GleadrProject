@@ -33,7 +33,6 @@ if(!isset($_SESSION['loginAttempt'])) {
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"/>
     <!--Custom CSS-->
     <link rel="stylesheet" href="../includes/css/styles.css"/>
-    <link rel="stylesheet" href="style.css"/>
     <!--Include Modernizr in the hand, before any other JavaScript (for older browsers)-->
     <script src="../includes/js/modernizr-2.6.2.min.js"></script>
 
@@ -119,7 +118,7 @@ if(!isset($_SESSION['loginAttempt'])) {
         if ($_SESSION['loginAttempt'] == 'fail') {
             echo 'in';
         }
-        ?>"  id="loginModal">
+        ?>" id="loginModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
