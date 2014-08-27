@@ -17,7 +17,7 @@ if(isset($_POST['username'])) {
             header("Location: index.php");
             exit();
         } else {
-            echo "This account hasn`t been activated yet! Please visit your email and click the activation link";
+            header("Location: activate.php");
         }
     } else {
         $_SESSION['loginAttempt'] = 'fail';

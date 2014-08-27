@@ -10,16 +10,24 @@ SoftUni Overflow is a programming forum where people can share ideas and ask que
 Main functionalities that have been implemented are:
 
 -Creating user profile
+
 -Logging in
+
 -Creating a topic
+
 -Posting replies to a topic
+
 
 In User Profile Page you can:
 
 -Edit your avatar
+
 -Add location
+
 -Add birth date
+
 -See your profile information
+
 
 Error & Security checks have been added to make sure that no one enters without a registration and the MySQL database is safe.
 The topics are presented by the date and time the last user has posted. So the most recent answer will be at the top.
