@@ -51,7 +51,7 @@ function fetchTopics($cid, $page, $perPage, $logged) {
             $views = $row['topic_views'];
             $date = $row['topic_date'];
             $creator = $row['topic_creator'];
-            $topics .= "<tr><td><a href='view_topic.php?cid=" . $cid . "&tid=" . $tid . "'>" . htmlentities($title) . "</a><br/>";
+            $topics .= "<tr><td><a href='view_topic.php?cid=" . $cid . "&tid=" . $tid . "'><span class='glyphicon glyphicon-file'></span> " . htmlentities($title) . "</a><br/>";
             $topics .= "<span class='post_info'>Posted by: " . htmlentities($creator) . " on " . $date . "</span></td>";
             $topics .= "<td align='center'>" . mysql_result($result, 0) . "</td><td align='center'>" . $views . "</td></tr>";
         }
@@ -77,36 +77,34 @@ function fetchPosts($cid, $tid, $page, $perPage) {
     $sql = "SELECT * FROM topics WHERE category_id='".$cid."' AND id='".$tid."' LIMIT 1";
     $res = mysql_query($sql) or die(mysql_error());
     if(mysql_num_rows($res) == 1) {
-        echo "<table width='100%'>";
-        if(isset($_SESSION['uid'])) {echo "<tr><td colspan='2'><input type='submit' value='Add Reply'" .
-            "onclick=\"window.location = 'post_reply.php?cid=" . $cid . "&tid=" . $tid . "'\" /><hr/>";}
-        else {
-            echo '<tr><td colspan="2"><p>Please login to post your reply</p><hr/></td></tr>';
-        }
+        echo "<table class='table table-striped'>";
+
         while($row = mysql_fetch_assoc($res)) {
             $sql2 = "SELECT * FROM posts WHERE category_id='".$cid."' AND topic_id='{$tid}' LIMIT {$start}, {$perPage}";
             $res2 = mysql_query($sql2) or die(mysql_error());
             while($row2 = mysql_fetch_assoc($res2)) {
-                echo "<tr><td valign='top' style='1px solid #000000;'><div style='min-height: 125px;'</td>" .
-                    htmlentities($row['topic_title']) . "<br/>by " . htmlentities($row2['post_creator']) .
+                echo "<tr><td><div class='content' style='min-height: 150px; '</td> <h4>" .
+                    htmlentities($row['topic_title']) . "<br/><small>by " . htmlentities($row2['post_creator']) .
                     " - " . $row2['post_date'] .
-                    "&nbsp;&nbsp;&nbsp;<form action='' method='post'>" .
+                    "</small></h4><div class='well well-small pull-right voteBox' style='text-align: center; color: grey;'><form  action='' method='post'>" .
                     "<input type='hidden' name='like' value='" . $row2['id'] . "'/>" .
-                    "<input type='submit' name='likeBtn' value='Upvote'/>" .
-                    "</form>&nbsp;&nbsp;&bull;&nbsp;&nbsp;";
+                    "<input type='submit' class='btn btn-success btn-small voteBtn' style='width:100%'  name='likeBtn' value='Vote +'/>" .
+                    "</form> ";
                 echo $row2['votes'];
-                echo "&nbsp;&nbsp;&bull;&nbsp;&nbsp;" .
-                    "<form action='' method='post'>" .
+                echo "<form action='' method='post'>" .
                     "<input type='hidden' name='dislike' value='" . $row2['id'] . "'/>" .
-                    "<input type='submit' name='dislikeBtn' value='Downvote'/>" .
-                    "</form>" .
-
-
+                    "<input type='submit' class='btn btn-default btn-small voteBtn' style='width:100%' name='dislikeBtn' value='Vote -'/>" .
+                    "</form></div>" .
                     "<hr/>" .
                     htmlentities($row2['post_content']) .
-                    "</div></td><td width='200' valign='top' align='center' style='border:1px solid #000'>" .
-                    '<img src="data:image/jpeg;base64,'.base64_encode( getImage($row2['post_creator']) ).'" height="210" width="200"/>' .
-                    "</td></tr><tr><td colspan='2'><hr /></td></tr>";
+                    "</div></td><td width='200' valign='top' align='center'>" .
+                    '<img src="data:image/jpeg;base64,'.base64_encode( getImage($row2['post_creator']) ).'" style="border-radius: 15px; margin: 25px 0;" height="120" width="120"/>';
+
+            }
+            if(isset($_SESSION['uid'])) {echo "<tr><td colspan='2'><input type='submit' class='btn btn-default pull-right'  value='POST REPLY'" .
+                "onclick=\"window.location = 'post_reply.php?cid=" . $cid . "&tid=" . $tid . "'\" />";}
+            else {
+                echo '<tr><td colspan="2"><p>Log in to post reply.</p><hr/></td></tr>';
             }
             $old_views = $row['topic_views'];
             $new_views = $old_views + 1;
