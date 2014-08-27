@@ -244,6 +244,8 @@ Notes:	 Hand coded for Udemy.com
     }
     .well:hover {
         box-shadow: 0 0 25px 1px lightgray;
+    }
+    .well.clickable {
         cursor: pointer;
     }
     .alert {
@@ -258,7 +260,17 @@ Notes:	 Hand coded for Udemy.com
     a:hover {
         text-decoration: none;
     }
-
+    .topicsViewer table {
+        background: #f9f2f4;
+        font-size: 1.2em;
+    }
+    .pageNums {
+        padding: 3px 8px;
+        margin: 1px;
+        background-color: #999999;
+        font-weight: bold;
+        color: white;
+    }
 
 
 /* --------------------------------------

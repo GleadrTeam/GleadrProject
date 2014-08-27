@@ -176,7 +176,7 @@ if(!isset($_SESSION['loginAttempt'])) {
                 <?php
                 if ($isLogged) {
                 ?>
-                    <a href="#" class="btn btn-large btn-default pull-right" id="btn-newQ">
+                    <a href="create_topic.php" class="btn btn-large btn-default pull-right" id="btn-newQ">
                         <span class="glyphicon glyphicon-plus"></span> QUESTION
                     </a>
                 <?php
@@ -184,12 +184,7 @@ if(!isset($_SESSION['loginAttempt'])) {
                 ?>
             </div>
         </div>
-        <!--  Info message for not logged in: -->
-        <div class="alert alert-info alert-block fade in" id="loginAlert">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <h4>You're not logged in</h4>
-            <p>Please log in to your account or create a new one to post a question.</p>
-        </div>
+
         <!--    Categories blocks: -->
         <?php
         $sql = "SELECT * FROM categories ORDER BY category_title ASC";
@@ -204,7 +199,7 @@ if(!isset($_SESSION['loginAttempt'])) {
                 //$categories .= "<a href='view_category.php?cid=".$id."' class='cat_links'>".$title ." - <font size='-1'>".$description."</font></a></br>";
                 ?>
                 <a href="view_category.php?cid=<?php echo $id ?>">
-                <div class="well well-large">
+                <div class="well well-large clickable">
 
                     <h3>
                         <span class='glyphicon glyphicon-leaf'></span>

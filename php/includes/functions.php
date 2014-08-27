@@ -40,11 +40,9 @@ function fetchTopics($cid, $page, $perPage, $logged) {
     $res2 = mysql_query($sql2) or die(mysql_error());
     $topics = '';
     if(mysql_num_rows($res2) > 0) {
-        $topics .= "<table width='100%' style='border-collapse: collapse;' id='topics-table'>";
-        $topics .= "<tr><td colspan='3'><a href='index.php'>Return To Forum Index</a>" . $logged . "<hr/></td></tr>";
-        $topics .= "<tr style='background-color:#dddddd;'><td>Topic Title</td><td width='65' align='center'>Replies</td>";
-        $topics .= "<td width='65' align='center'>Views</td></tr>";
-        $topics .= "<tr><td colspan='3'><hr/></td></tr>";
+        $topics .= "<table class='table table-striped' width='100%' style='border-collapse: collapse;' id='topics-table'>";
+        $topics .= "<tr style='background-color:#dddddd;'><td>TOPIC TITLE</td><td width='65' align='center'>REPLIES</td>";
+        $topics .= "<td width='65' align='center'>VIEWS</td></tr>";
 
         while($row = mysql_fetch_assoc($res2)) {
             $tid = $row['id'];
@@ -56,12 +54,11 @@ function fetchTopics($cid, $page, $perPage, $logged) {
             $topics .= "<tr><td><a href='view_topic.php?cid=" . $cid . "&tid=" . $tid . "'>" . htmlentities($title) . "</a><br/>";
             $topics .= "<span class='post_info'>Posted by: " . htmlentities($creator) . " on " . $date . "</span></td>";
             $topics .= "<td align='center'>" . mysql_result($result, 0) . "</td><td align='center'>" . $views . "</td></tr>";
-            $topics .= "<tr><td colspan='3'><hr/></td></tr>";
         }
         $topics .= "</table>";
         echo $topics;
     } else {
-        echo "<a href='index.php'>Return To Forum Index</a><hr/>";
+        echo "<a href='index.php'>Back </a><hr/>";
         echo "<p>There are no topics in this category yet." . $logged . "</p>";
     }
 }

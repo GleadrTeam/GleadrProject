@@ -11,11 +11,6 @@ Notes:	 Hand coded for Udemy.com
 
 $(function() {
 
-    $('#btn-newQ').click(function() {
-        $d = $('#loginAlert');
-        $('#loginAlert').slideDown();
-        console.log($d);
-    });
 
     $('#loginCancel').click( function() {
         $('#loginModal').hide();

@@ -218,6 +218,7 @@ if(!isset($_SESSION['loginAttempt'])) {
                         </div>
 
                     </div>
+
                     <div class="form-group">
                         <label for="topicTitle" class="control-label">TOPIC TITLE</label>
                         <input type="text" name="topic_title" id="topicTitle" class="form-control" size="98" maxlength="150"/>
