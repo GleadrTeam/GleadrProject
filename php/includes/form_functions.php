@@ -61,7 +61,7 @@ function isActive($user) {
 
     $myQuery = mysql_query($sql) or die(mysql_error());
 
-    return (mysql_result($myQuery, 0) == '0') ? false : true;
+    return (mysql_result($myQuery, 0) == '0') ? true : false;
 }
 
 //activates the account related to the given activation code

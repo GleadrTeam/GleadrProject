@@ -183,15 +183,16 @@ if(!isset($_SESSION['loginAttempt'])) {
 
             </div>
         </div>
-        <div class="well well-lg "><h4>Your email address is not confirmed yet. Please check your mail box and activate your account.</h4></div>
-
-
-
-
-
+        <?php
+        if(isset($_GET['aid'])) {
+            activateAccount($_GET['aid']);
+            echo '<div class="well well-lg "><h4>Your account is active please login!</h4></div>';
+        }
+        else {
+            echo '<div class="well well-lg "><h4>Please verify your account</h4></div>';
+        }
+        ?>
     </div><!-- end mainRow row -->
-
-
 </div><!--end container-->
 
 <!--footer goes here-->

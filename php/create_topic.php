@@ -294,7 +294,6 @@ if(!isset($_SESSION['loginAttempt'])) {
 
 
 <?php
-session_start();
 ?>
 <?php
 if(!isset($_SESSION['uid']) || !isset($_GET['cid'])) {
