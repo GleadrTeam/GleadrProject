@@ -26,6 +26,9 @@ The topics are presented by the date and time the last user has posted. So the m
 
 Developers Team:
 Atanas Dimitrov - Front-end/bootstrap, participates greatly in project discussions, back/front-end integration
+
 Deyan Kirilov - QA, participates in project discussions
+
 Petar Popstoyanov - Back-end/PHP (user registration, input validation), participates greatly in project discussions, code fixes, content
+
 Valeri Hristov -  Back-end/PHP (categories/posts/reply implementation, user profile, voting, searching, email validation), MySQL stuff, hosting, content
