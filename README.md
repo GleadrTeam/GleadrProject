@@ -25,6 +25,7 @@ Error & Security checks have been added to make sure that no one enters without 
 The topics are presented by the date and time the last user has posted. So the most recent answer will be at the top.
 
 Developers Team:
+
 Atanas Dimitrov - Front-end/bootstrap, participates greatly in project discussions, back/front-end integration
 
 Deyan Kirilov - QA, participates in project discussions
