@@ -12,6 +12,7 @@ if(isset($_SESSION['uid'])) {
     // user is either not logged or not registered :
     $isLogged = false;
 }
+$registrationSuccess = false;
 ?>
 
 <!doctype html>
