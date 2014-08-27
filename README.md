@@ -3,15 +3,6 @@ GleadrProject
 
 PHP Basics team work @ SoftUni.bg
 
-
-http://softunioverflow.webuda.com/
-
-
-GleadrProject
-=============
-
-PHP Basics team work @ SoftUni.bg
-
 http://softunioverflow.webuda.com/
 
 SoftUni Overflow is a programming forum where people can share ideas and ask questions.
