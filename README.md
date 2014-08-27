@@ -26,7 +26,7 @@ The topics are presented by the date and time the last user has posted. So the m
 
 Developers Team:
 
-Atanas Dimitrov - Front-end/bootstrap, participates greatly in project discussions, back/front-end integration
+Atanas Dimitrov - Front End with costumized Bootstrap 3, Integration to Back End, minor BackEnd enhancements in PHP code.
 
 Deyan Kirilov - QA, participates in project discussions
 
