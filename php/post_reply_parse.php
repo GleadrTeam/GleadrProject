@@ -24,8 +24,8 @@ if(isset($_SESSION['uid'])) {
         $res3 = mysql_query($sql3) or die(mysql_error());
 
         if($res && $res2 && $res3) {
-            echo "<p>Your reply has been successfully posted</p><a href='view_topic.php?cid=" . $cid . "&tid=" . $tid .
-                "'>Click here to return to topic</a>";
+            $urlToGo = 'Location: view_topic.php?cid=' . $cid . "&tid=" . "$tid";
+            header($urlToGo);
         } else {
             echo "There was a problem posting your response. Try again later";
         }

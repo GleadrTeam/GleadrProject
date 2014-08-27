@@ -29,7 +29,7 @@ Notes:	 Hand coded for Udemy.com
         -webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
         transition: 2s;
         height: 15%;
-        min-height: 120px;
+        min-height: 160px;
     }
     footer > #footer-about {
         padding:0;
