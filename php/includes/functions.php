@@ -130,4 +130,11 @@ function getPostsCount($cid, $tid) {
     return mysql_result($result, 0);
 }
 
+function getCurrentCategory($cid) {
+    $sql = "SELECT * FROM categories WHERE id={$cid}";
+    $result = mysql_query($sql) or die(mysql_error());
+
+    $row = mysql_fetch_assoc($result);
+    return $row['category_title'];
+}
 ?>

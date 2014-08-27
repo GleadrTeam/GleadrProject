@@ -7,12 +7,12 @@ $page = (isset($_GET['page'])) ? (int) $_GET['page'] : 1;
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SoftUni Overflow | Viewing Categories</title>
+    <title>SoftUni Overflow | Viewing Categories | <?php echo getCurrentCategory($_GET['cid']); ?></title>
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 <div id="wrapper">
-    <h1>SoftUni Overflow | Viewing Category</h1>
+    <h1>SoftUni Overflow | Viewing Category | <?php echo getCurrentCategory($_GET['cid']); ?></h1>
     <?php
     if(!isset($_SESSION['uid'])) {
         echo '<form action="login.php" method="post">' .

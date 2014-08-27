@@ -16,12 +16,12 @@ if(isset($_POST['dislike'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SoftUni Overflow | View Topics</title>
+    <title>SoftUni Overflow | View Topics | <?php echo getCurrentCategory($_GET['cid']); ?></title>
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 <div id="wrapper">
-    <h1>SoftUni Overflow | Viewing Topic</h1>
+    <h1>SoftUni Overflow | Viewing Topic | <?php echo getCurrentCategory($_GET['cid']); ?></h1>
     <?php
     if(!isset($_SESSION['uid'])) {
         echo '<form action="login.php" method="post">' .
